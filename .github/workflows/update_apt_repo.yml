@@ -13,7 +13,7 @@ jobs:
         amd64
         arm64
       # Change this file name for each release
-      PARTIAL_PACKAGE_FILE_NAME: packsquash_0.3.0~rc.1
+      PARTIAL_PACKAGE_FILE_NAME: packsquash_0.3.0
 
       # Make git commit author and committer look fancy
       GIT_AUTHOR_NAME: github-actions[bot]
