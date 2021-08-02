@@ -15,11 +15,17 @@ jobs:
     # Change this file name for each release
     PARTIAL_PACKAGE_FILE_NAME: packsquash_0.3.0~rc.1
 
+    # Make git commit author and committer look fancy
+    GIT_AUTHOR_NAME: github-actions[bot]
+    GIT_AUTHOR_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+    GIT_COMMITTER_NAME: github-actions[bot]
+    GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+
   matrix:
     arch: ['amd64', 'arm64']
 
   steps:
-    - name: Download ${{ matrix.arch }} Debian package
+    - name: "Download ${{ matrix.arch }} Debian package"
       uses: dawidd6/action-download-artifact@v2
       with:
         github_token: ${{ secrets.GH_API_TOKEN }}
@@ -28,11 +34,11 @@ jobs:
         branch: master
         # TODO: change to release
         event: push
-        name: Debian package (${{ matrix.arch }})
-        path: .${{ matrix.arch }}
+        name: "Debian package (${{ matrix.arch }})"
+        path: ".${{ matrix.arch }}"
         repo: ComunidadAylas/PackSquash
 
-    - name: Add ${{ matrix.arch }} Debian package
+    - name: "Add ${{ matrix.arch }} Debian package"
       uses: jrandiny/apt-repo-action@v2.0.1
       with:
         repo_supported_version: stable
@@ -41,7 +47,7 @@ jobs:
         repo_folder: debian
         github_token: ${{ secrets.GH_API_TOKEN }}
         repo_supported_arch: ${{ env.REPO_ARCHITECTURES }}
-        file: .${{ matrix.arch }}/${{ env.PARTIAL_PACKAGE_FILE_NAME }}.deb
+        file: ".${{ matrix.arch }}/${{ env.PARTIAL_PACKAGE_FILE_NAME }}.deb"
         public_key: ${{ secrets.APT_PUBLIC_KEY }}
         private_key: ${{ secrets.APT_PRIVATE_KEY }}
         key_passphrase: ${{ secrets.APT_PRIVATE_KEY_PASSPHRASE }}
