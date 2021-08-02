@@ -28,10 +28,10 @@ jobs:
         uses: jrandiny/apt-repo-action@v2.0.1
         with:
           github_token: ${{ secrets.GH_API_TOKEN }}
-          arch: |
+          repo_supported_arch: |
             amd64
             arm64
-          version: all
+          repo_supported_version: all
           # Change this file name accordingly
           file: .amd64/packsquash_0.3.0~rc.1_amd64.deb
           file_target_version: all
@@ -59,10 +59,10 @@ jobs:
         uses: jrandiny/apt-repo-action@v2.0.1
         with:
           github_token: ${{ secrets.GH_API_TOKEN }}
-          arch: |
+          repo_supported_arch: |
             amd64
             arm64
-          version: all
+          repo_supported_version: all
           # Change this file name accordingly
           file: .arm64/packsquash_0.3.0~rc.1_arm64.deb
           file_target_version: all
