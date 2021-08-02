@@ -12,8 +12,9 @@ jobs:
       REPO_ARCHITECTURES: |
         amd64
         arm64
-      # Change this file name for each release
+      # Change these two for each release
       PARTIAL_PACKAGE_FILE_NAME: packsquash_0.3.0
+      PACKAGE_REVISION: '-0'
 
       # Make git commit author and committer look fancy
       GIT_AUTHOR_NAME: github-actions[bot]
@@ -50,7 +51,7 @@ jobs:
           repo_folder: debian
           github_token: ${{ secrets.GH_API_TOKEN }}
           repo_supported_arch: ${{ env.REPO_ARCHITECTURES }}
-          file: '.${{ matrix.arch }}/${{ env.PARTIAL_PACKAGE_FILE_NAME }}_${{ matrix.arch }}.deb'
+          file: '.${{ matrix.arch }}/${{ env.PARTIAL_PACKAGE_FILE_NAME }}${{ env.PACKAGE_REVISION }}_${{ matrix.arch }}.deb'
           public_key: ${{ secrets.APT_PUBLIC_KEY }}
           private_key: ${{ secrets.APT_PRIVATE_KEY }}
           key_passphrase: ${{ secrets.APT_PRIVATE_KEY_PASSPHRASE }}
