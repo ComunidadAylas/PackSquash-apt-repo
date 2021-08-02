@@ -8,10 +8,18 @@ jobs:
   update:
     runs-on: ubuntu-latest
 
+  env:
+    REPO_ARCHITECTURES: |
+      amd64
+      arm64
+    # Change this file name for each release
+    PARTIAL_PACKAGE_FILE_NAME: packsquash_0.3.0~rc.1
+
+    matrix:
+      arch: ['amd64', 'arm64']
+
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Download amd64 Debian package
+      - name: Download ${{ matrix.arch }} Debian package
         uses: dawidd6/action-download-artifact@v2
         with:
           github_token: ${{ secrets.GH_API_TOKEN }}
@@ -20,55 +28,20 @@ jobs:
           branch: master
           # TODO: change to release
           event: push
-          name: Debian package (amd64)
-          path: .amd64
+          name: Debian package (${{ matrix.arch }})
+          path: .${{ matrix.arch }}
           repo: ComunidadAylas/PackSquash
 
-      - name: Add amd64 Debian package
+      - name: Add ${{ matrix.arch }} Debian package
         uses: jrandiny/apt-repo-action@v2.0.1
         with:
+          repo_supported_version: stable
+          file_target_version: stable
+          page_branch: apt-repo
+          repo_folder: debian
           github_token: ${{ secrets.GH_API_TOKEN }}
-          repo_supported_arch: |
-            amd64
-            arm64
-          repo_supported_version: all
-          # Change this file name accordingly
-          file: .amd64/packsquash_0.3.0~rc.1_amd64.deb
-          file_target_version: all
+          repo_supported_arch: ${{ env.REPO_ARCHITECTURES }}
+          file: .${{ matrix.arch }}/${{ env.PARTIAL_PACKAGE_FILE_NAME }}.deb
           public_key: ${{ secrets.APT_PUBLIC_KEY }}
           private_key: ${{ secrets.APT_PRIVATE_KEY }}
           key_passphrase: ${{ secrets.APT_PRIVATE_KEY_PASSPHRASE }}
-          page_branch: apt-repo
-          repo_folder: debian
-          debug: true
-
-      - name: Download arm64 Debian package
-        uses: dawidd6/action-download-artifact@v2
-        with:
-          github_token: ${{ secrets.GH_API_TOKEN }}
-          workflow: 5482008
-          workflow_conclusion: success
-          branch: master
-          # TODO: change to release
-          event: push
-          name: Debian package (arm64)
-          path: .arm64
-          repo: ComunidadAylas/PackSquash
-
-      - name: Add arm64 Debian package
-        uses: jrandiny/apt-repo-action@v2.0.1
-        with:
-          github_token: ${{ secrets.GH_API_TOKEN }}
-          repo_supported_arch: |
-            amd64
-            arm64
-          repo_supported_version: all
-          # Change this file name accordingly
-          file: .arm64/packsquash_0.3.0~rc.1_arm64.deb
-          file_target_version: all
-          public_key: ${{ secrets.APT_PUBLIC_KEY }}
-          private_key: ${{ secrets.APT_PRIVATE_KEY }}
-          key_passphrase: ${{ secrets.APT_PRIVATE_KEY_PASSPHRASE }}
-          page_branch: apt-repo
-          repo_folder: debian
-          debug: true
