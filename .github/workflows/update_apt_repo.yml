@@ -22,6 +22,8 @@ jobs:
       GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
 
     strategy:
+      max-parallel: 1
+      fail-fast: true
       matrix:
         arch: ['amd64', 'arm64']
 
@@ -48,7 +50,7 @@ jobs:
           repo_folder: debian
           github_token: ${{ secrets.GH_API_TOKEN }}
           repo_supported_arch: ${{ env.REPO_ARCHITECTURES }}
-          file: '.${{ matrix.arch }}/${{ env.PARTIAL_PACKAGE_FILE_NAME }}.deb'
+          file: '.${{ matrix.arch }}/${{ env.PARTIAL_PACKAGE_FILE_NAME }}_${{ matrix.arch }}.deb'
           public_key: ${{ secrets.APT_PUBLIC_KEY }}
           private_key: ${{ secrets.APT_PRIVATE_KEY }}
           key_passphrase: ${{ secrets.APT_PRIVATE_KEY_PASSPHRASE }}
