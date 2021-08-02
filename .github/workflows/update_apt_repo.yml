@@ -15,7 +15,7 @@ jobs:
         uses: dawidd6/action-download-artifact@v2
         with:
           github_token: ${{ secrets.GH_API_TOKEN }}
-          workflow: Build
+          workflow: 5482008
           workflow_conclusion: success
           branch: master
           # TODO: change to release
@@ -46,7 +46,7 @@ jobs:
         uses: dawidd6/action-download-artifact@v2
         with:
           github_token: ${{ secrets.GH_API_TOKEN }}
-          workflow: Build
+          workflow: 5482008
           workflow_conclusion: success
           branch: master
           # TODO: change to release
