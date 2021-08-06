@@ -1,5 +1,5 @@
 Codename: stable
-Date: Fri, 06 Aug 2021 21:06:13 UTC
+Date: Fri, 06 Aug 2021 21:07:05 UTC
 Architectures: amd64 arm64
 Components: main
 Description: ComunidadAylas/PackSquash-apt-repo
@@ -7,20 +7,20 @@ MD5Sum:
  1b7115797ab223efbe9bc42027fd98bf 8448 main/binary-amd64/Packages
  31a4e4f853b1e0a3a527fd1f79a95120 3909 main/binary-amd64/Packages.gz
  fd3086397a127a1ee53dce74b05d4cbc 84 main/binary-amd64/Release
- d41d8cd98f00b204e9800998ecf8427e 0 main/binary-arm64/Packages
- 7029066c27ac6f5ef18d660d5741979a 20 main/binary-arm64/Packages.gz
+ 5ac5ea07b2590edeb00e8713c2a8a9fa 8448 main/binary-arm64/Packages
+ 992efbdc7f421803525f7df5d684cb2f 3904 main/binary-arm64/Packages.gz
  139ee8fc6cf41497e8e23a0124c51408 84 main/binary-arm64/Release
 SHA1:
  c7781220db331b288651d9c8f34a9822c7694c15 8448 main/binary-amd64/Packages
  ce4e7d07c656b0868eeb89831e3c4536b0a852ac 3909 main/binary-amd64/Packages.gz
  7901cd175220e0102ea223fe51fd8a24245e210a 84 main/binary-amd64/Release
- da39a3ee5e6b4b0d3255bfef95601890afd80709 0 main/binary-arm64/Packages
- 46c6643f07aa7f6bfe7118de926b86defc5087c4 20 main/binary-arm64/Packages.gz
+ da603c1979d452d5aea7d272e136c09ef0b215ed 8448 main/binary-arm64/Packages
+ fee8c04ac59a8f6bd60bcfdfa23b92ac97d33b40 3904 main/binary-arm64/Packages.gz
  6a887069c48290d536e76b22eee991371f810d2a 84 main/binary-arm64/Release
 SHA256:
  5e2270a8b3fcfa71e599af860c613a4de837e556f4f13e1bb908c9846bffedb2 8448 main/binary-amd64/Packages
  b6f2ae1072280f5e09e9f03276e1daa5a8492dd5a1e667b3b2bb617eb8ba5d54 3909 main/binary-amd64/Packages.gz
  a399cf2a12f70e67980e619bbd424361f2ff0c47990aba709afb775e1835cab6 84 main/binary-amd64/Release
- e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 0 main/binary-arm64/Packages
- 59869db34853933b239f1e2219cf7d431da006aa919635478511fabbfc8849d2 20 main/binary-arm64/Packages.gz
+ 056e014427a20c4e04793d7403c116041b0111d6600d81c1b1808ee6c5170941 8448 main/binary-arm64/Packages
+ 760a8d257ee830406273609d5007f62bb4e54120b4bac256b2b7ee1daaf6bca3 3904 main/binary-arm64/Packages.gz
  9d752eb69383d7abe8a1dc62ffefb8714c4dec492a5a84a2a6ed4b45dfcb63cc 84 main/binary-arm64/Release
