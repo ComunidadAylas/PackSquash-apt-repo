@@ -1,0 +1,7 @@
+Description: ComunidadAylas/PackSquash-apt-repo
+Codename: stable
+Architectures: amd64 arm64
+Components: main
+SignWith: 69B0819105331AB65CB2A515A7BB2ABB4A29E67B
+
+
