@@ -14,7 +14,7 @@ jobs:
         arm64
       # Change these two for each release
       PARTIAL_PACKAGE_FILE_NAME: packsquash_0.3.0
-      PACKAGE_REVISION: '-0'
+      PACKAGE_REVISION: '-1'
 
       # Make git commit author and committer look fancy
       GIT_AUTHOR_NAME: github-actions[bot]
