@@ -35,7 +35,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           workflow: 5482008
           workflow_conclusion: success
-          branch: master
           event: release
           name: 'Debian package (${{ matrix.arch }})'
           path: '.${{ matrix.arch }}'
