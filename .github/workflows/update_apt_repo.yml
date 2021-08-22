@@ -14,7 +14,7 @@ jobs:
         arm64
       # Change these two for each release
       PARTIAL_PACKAGE_FILE_NAME: packsquash_0.3.0
-      PACKAGE_REVISION: '-2'
+      PACKAGE_REVISION: '-3'
 
       # Make git commit author and committer look fancy
       GIT_AUTHOR_NAME: github-actions[bot]
@@ -32,12 +32,11 @@ jobs:
       - name: 'Download ${{ matrix.arch }} Debian package'
         uses: dawidd6/action-download-artifact@v2
         with:
-          github_token: ${{ secrets.GH_API_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           workflow: 5482008
           workflow_conclusion: success
           branch: master
-          # TODO: change to release
-          event: push
+          event: release
           name: 'Debian package (${{ matrix.arch }})'
           path: '.${{ matrix.arch }}'
           repo: ComunidadAylas/PackSquash
@@ -49,7 +48,7 @@ jobs:
           file_target_version: stable
           page_branch: apt-repo
           repo_folder: debian
-          github_token: ${{ secrets.GH_API_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           repo_supported_arch: ${{ env.REPO_ARCHITECTURES }}
           file: '.${{ matrix.arch }}/${{ env.PARTIAL_PACKAGE_FILE_NAME }}${{ env.PACKAGE_REVISION }}_${{ matrix.arch }}.deb'
           public_key: ${{ secrets.APT_PUBLIC_KEY }}
