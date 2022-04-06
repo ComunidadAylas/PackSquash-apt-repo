@@ -1,5 +1,5 @@
 Codename: stable
-Date: Wed, 06 Apr 2022 23:31:11 UTC
+Date: Wed, 06 Apr 2022 23:32:10 UTC
 Architectures: amd64 arm64
 Components: main
 Description: ComunidadAylas/PackSquash-apt-repo
@@ -7,20 +7,20 @@ MD5Sum:
  3ef6f21ef836f1865197eea4005d1dd2 8584 main/binary-amd64/Packages
  cf6884411fb916289c22b4c3b4c87686 3952 main/binary-amd64/Packages.gz
  fd3086397a127a1ee53dce74b05d4cbc 84 main/binary-amd64/Release
- 175287cf795bfb6003de08cf9db46d53 8448 main/binary-arm64/Packages
- 8543012eb92e35568271f85f6afea617 3904 main/binary-arm64/Packages.gz
+ 6921d1079649a830014451abe7507142 8584 main/binary-arm64/Packages
+ 07a20df1dcd53a4a4a21e143d2902689 3950 main/binary-arm64/Packages.gz
  139ee8fc6cf41497e8e23a0124c51408 84 main/binary-arm64/Release
 SHA1:
  734a1bb861c48bca2388295115b958e8ef7d481c 8584 main/binary-amd64/Packages
  53c1443decb3be8e3cef28f4d156de92dedc7a27 3952 main/binary-amd64/Packages.gz
  7901cd175220e0102ea223fe51fd8a24245e210a 84 main/binary-amd64/Release
- 906b6bbc97e046f4f47b1a507ab278f000bb4554 8448 main/binary-arm64/Packages
- beb18348034830e83f06e91395a511f92d655169 3904 main/binary-arm64/Packages.gz
+ 67cd82959977f172529016cf76c4bb5321b29390 8584 main/binary-arm64/Packages
+ 4636364207887c793d9a0b6cd36e2fcc9973d5ce 3950 main/binary-arm64/Packages.gz
  6a887069c48290d536e76b22eee991371f810d2a 84 main/binary-arm64/Release
 SHA256:
  cdf8344e75471790d116d9803ffb79ff5eee92f13de68a52109223be9b5d6eee 8584 main/binary-amd64/Packages
  c6698bbe790bde0c134f556bd899233ffe98ec63e4b5aa73e08ae55990df4997 3952 main/binary-amd64/Packages.gz
  a399cf2a12f70e67980e619bbd424361f2ff0c47990aba709afb775e1835cab6 84 main/binary-amd64/Release
- 26f45b18ca6604f6771782c595be3880239ea547e35be84a132f5133ec035f43 8448 main/binary-arm64/Packages
- 341bcb981eaee8ee3e1c3614ac19c56286993444b6c300c6d4c7e692e75d0fff 3904 main/binary-arm64/Packages.gz
+ 22b9154c20c362ad7e792756ed52235876f2e41e983413ff2254cadbe6813f69 8584 main/binary-arm64/Packages
+ 5d4866e05cc4eb8c85cef219e2486499df2c06fd115cda470e9ce21a4a53ae4f 3950 main/binary-arm64/Packages.gz
  9d752eb69383d7abe8a1dc62ffefb8714c4dec492a5a84a2a6ed4b45dfcb63cc 84 main/binary-arm64/Release
