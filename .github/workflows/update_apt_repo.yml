@@ -13,8 +13,8 @@ jobs:
         amd64
         arm64
       # Change these two for each release
-      PARTIAL_PACKAGE_FILE_NAME: packsquash_0.3.0
-      PACKAGE_REVISION: '-3'
+      PARTIAL_PACKAGE_FILE_NAME: packsquash_0.3.1
+      PACKAGE_REVISION: '-0'
 
       # Make git commit author and committer look fancy
       GIT_AUTHOR_NAME: github-actions[bot]
@@ -36,7 +36,7 @@ jobs:
           workflow: 5482008
           workflow_conclusion: success
           event: release
-          name: 'Debian package (${{ matrix.arch }})'
+          name: 'PackSquash CLI Debian package (${{ matrix.arch }})'
           path: '.${{ matrix.arch }}'
           repo: ComunidadAylas/PackSquash
 
