@@ -2,44 +2,44 @@
 Hash: SHA512
 
 Codename: stable
-Date: Sun, 22 Aug 2021 16:23:54 UTC
+Date: Wed, 06 Apr 2022 23:31:11 UTC
 Architectures: amd64 arm64
 Components: main
 Description: ComunidadAylas/PackSquash-apt-repo
 MD5Sum:
- e8adeda55dfbce8afcd71e02510983a2 8448 main/binary-amd64/Packages
- 29b31879fa69e7abe2f923a603555d94 3897 main/binary-amd64/Packages.gz
+ 3ef6f21ef836f1865197eea4005d1dd2 8584 main/binary-amd64/Packages
+ cf6884411fb916289c22b4c3b4c87686 3952 main/binary-amd64/Packages.gz
  fd3086397a127a1ee53dce74b05d4cbc 84 main/binary-amd64/Release
  175287cf795bfb6003de08cf9db46d53 8448 main/binary-arm64/Packages
  8543012eb92e35568271f85f6afea617 3904 main/binary-arm64/Packages.gz
  139ee8fc6cf41497e8e23a0124c51408 84 main/binary-arm64/Release
 SHA1:
- 32e06ef8772031289f759967f4edcb3a8b9d8db6 8448 main/binary-amd64/Packages
- 7b587807fd852fd683da800f236e48c367142c93 3897 main/binary-amd64/Packages.gz
+ 734a1bb861c48bca2388295115b958e8ef7d481c 8584 main/binary-amd64/Packages
+ 53c1443decb3be8e3cef28f4d156de92dedc7a27 3952 main/binary-amd64/Packages.gz
  7901cd175220e0102ea223fe51fd8a24245e210a 84 main/binary-amd64/Release
  906b6bbc97e046f4f47b1a507ab278f000bb4554 8448 main/binary-arm64/Packages
  beb18348034830e83f06e91395a511f92d655169 3904 main/binary-arm64/Packages.gz
  6a887069c48290d536e76b22eee991371f810d2a 84 main/binary-arm64/Release
 SHA256:
- 059fdafc26ede6410507999e3a6f7649f13577fef99614cbbdec3dafcdf73b54 8448 main/binary-amd64/Packages
- 517274d41bc49211ca364c8d77a11b5c093bab93e16fdeeb3db548dfd7c8d569 3897 main/binary-amd64/Packages.gz
+ cdf8344e75471790d116d9803ffb79ff5eee92f13de68a52109223be9b5d6eee 8584 main/binary-amd64/Packages
+ c6698bbe790bde0c134f556bd899233ffe98ec63e4b5aa73e08ae55990df4997 3952 main/binary-amd64/Packages.gz
  a399cf2a12f70e67980e619bbd424361f2ff0c47990aba709afb775e1835cab6 84 main/binary-amd64/Release
  26f45b18ca6604f6771782c595be3880239ea547e35be84a132f5133ec035f43 8448 main/binary-arm64/Packages
  341bcb981eaee8ee3e1c3614ac19c56286993444b6c300c6d4c7e692e75d0fff 3904 main/binary-arm64/Packages.gz
  9d752eb69383d7abe8a1dc62ffefb8714c4dec492a5a84a2a6ed4b45dfcb63cc 84 main/binary-arm64/Release
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEabCBkQUzGrZcsqUVp7squ0op5nsFAmEiehoACgkQp7squ0op
-5nu+URAAiniv6yXabrY5khSTuOSO8TXuCarnNt8ZLsOhVNStwvFSsd2Xsz78oDPR
-0imCz0qW0uhqgcMW+DIhKsdWLQSD54i8O+2QzJGJxB0SYHb0puUNLhpmOkmICmjO
-K/vTjbKOSfkg+kXTCxR+NioNGnLhm/pJfcSHH/zjtgX91ehlno9ouLwMSeLarSHg
-EgL8FuVqvPkynQtFarb2PxtmE6d1FMfRv5OWIgBAuyCv7GzeZ1MJp77Or/gzaCaA
-NgfYVBMfNe+zJc4VDM4EsfQI/Vjs0+c7iY1WPKu5UOG43saxIcziKDnVEOR0QOme
-LKPebIG2IpLP1JYRkVLnjs6/LIrImH7swToPh6pq/m3xROHgm17bTiFi5DEopdv8
-nw2qUVgEY3+8Z0tu0UWJfIn1hqiJW8SJPv9uvE5tpKl2hZyftHy3X2NLBAcUkGmK
-4Cacj2dDbXgp5vK/jOK+mJPs1xdf1XJ7xGn4pApaesRRtzxgSgKLXYMXveK4Avvs
-SndkQAPEY/hvvK7YqEd+oR6IOsPJH8WZuF95OTElMX6FhotXda8VGTRLwpaVOxKI
-wR0exbh+odiqjjtFbpDQjc8PV5v9hWubWMgyuUDGZ0z24u1R7IxO2KYBLiyVzNdH
-1Vow9pdLTS3RVjqqzUWStuIz0KUn75eMJdwqORPiQt3NPAXW1rc=
-=z6rJ
+iQIzBAEBCgAdFiEEabCBkQUzGrZcsqUVp7squ0op5nsFAmJOIr8ACgkQp7squ0op
+5nuOKA//UQzrzWA5oniy8DFu96Skqh1kxbmbdmG72LqGeceXWFhkf5CfGSQSarb6
+0sZvHxuQCUvD5oz2n7zDkbjGc87H3GqcnG7qqfJ0FDZxTE6Ws4wzFsyoiSeo7Yw/
+WSTzsfHjbzoEjEmP11y8ftGcNWWcUWbFiP4BAv2fE699Y22MKoDno576Ibxk44il
+6ENigoI90IKG4Nc7inDPxmw0ohOh4SCV5ab/cUdcnupblW35L3CX61KAV2QAWhri
+gRaXp5LjiCNh4P3oPjQDwxElpGOB7Bx9MEH5HJgNfBCVni8kYIBD83FTJcRVEx8l
+nBsoZm6rt+/s2AwZ2QEALf36MCR1wZ8YB9+KVmK2igoed7Rj1gWvj9wHjnoOeWNE
+YTNAMFJN7kryYMGfUylC4a43Bz1XJ/y/iInjOHURMEy7vGUgsTBgcRs/i7Df/AKA
+tMXMdB5HnghgJyJVTHDEK2GzZcOesGOxYINBd7+3cWyQGEr8T18cZCYIzQTUH/sf
+Oaya7hcJUYVsr4L0UqfBI9fAC8X2Ds5SVQgJQaxkhNfeuK3x/6EC0ndfD6RS6MZm
+ZxeQlkchBd1D8cfp4HQutkTOkzyv7SAw1XVR/3xORTCzbQP7izeCF+RF8PdDcfAP
+jzm5ZtSHw5xwzCpIzVfZQLRe96LQRM9k1p8VOzVjzAQ3irUE/DQ=
+=vtkE
 -----END PGP SIGNATURE-----
