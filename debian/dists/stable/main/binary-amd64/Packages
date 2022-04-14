@@ -1,18 +1,18 @@
 Package: packsquash
-Version: 0.3.1-0
+Version: 0.3.1-1
 Architecture: amd64
 Vcs-Browser: https://github.com/ComunidadAylas/PackSquash
 Vcs-Git: https://github.com/ComunidadAylas/PackSquash
 Maintainer: Alejandro González <AlexTMjugador@users.noreply.github.com>
-Installed-Size: 4223
-Depends: libglib2.0-0 (>= 2.31.8), libgstreamer-plugins-base1.0-0 (>= 1.10.0), gstreamer1.0-plugins-base (>= 1.16.2), gstreamer1.0-plugins-good (>= 1.16.2), libc6 (>= 2.29), libgstreamer1.0-0 (>= 1.0.0), gstreamer1.0-plugins-bad (>= 1.16.2)
+Installed-Size: 4215
+Depends: libgstreamer1.0-0 (>= 1.0.0), libglib2.0-0 (>= 2.31.8), libgstreamer-plugins-base1.0-0 (>= 1.10.0), gstreamer1.0-plugins-base (>= 1.16.2), gstreamer1.0-plugins-bad (>= 1.16.2), libc6 (>= 2.29), gstreamer1.0-plugins-good (>= 1.16.2)
 Priority: optional
 Section: utils
-Filename: pool/main/p/packsquash/packsquash_0.3.1-0_amd64.deb
-Size: 1359880
-SHA256: 198ed27163dfd5085cbc1ab492b901e8c1e6016124571f42c4eb44068768caf7
-SHA1: 94a751de57047a0c6e9bcef63e74bcd7455b33b0
-MD5sum: c63f1d8d3d6eabedd4dfe7378bcb2ae4
+Filename: pool/main/p/packsquash/packsquash_0.3.1-1_amd64.deb
+Size: 1355904
+SHA256: afdac9942a6b8c166af50d38e5806153f5b1baa4343266a7b28b470ed842071c
+SHA1: aac9eff789f2bfb5d30d61f387297d5be988bd31
+MD5sum: 02cb951c451209772717cb2e0a0d2f84
 Description: Minecraft resource and data pack optimizer (CLI)
  A Minecraft: Java Edition resource and data pack optimizer which aims to
  achieve the best possible compression, performance, and protection, improving
