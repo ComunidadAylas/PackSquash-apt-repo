@@ -1,0 +1,58 @@
+name: Update APT repository
+
+on:
+  workflow_dispatch:
+    inputs:
+      ci-run-id:
+        description: The ID of the run of the CI workflow that generated the artifacts to publish.
+        required: true
+        type: string
+
+env:
+  GIT_AUTHOR_NAME: github-actions[bot]
+  GIT_AUTHOR_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+  GIT_COMMITTER_NAME: github-actions[bot]
+  GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+
+  REPO_ARCHITECTURES: |
+    amd64
+    arm64
+
+jobs:
+  update-apt-repository:
+    name: Update APT repository
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      max-parallel: 1
+      matrix:
+        package-id:
+          - CLI
+          - GUI
+        arch:
+          - amd64
+          - arm64
+
+    steps:
+      - name: 📥 Download ${{ matrix.package-id }} ${{ matrix.arch }} Debian package
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          repo: ComunidadAylas/PackSquash
+          run_id: ${{ inputs.ci-run-id }}
+          name: PackSquash ${{ matrix.package-id }} Debian package (${{ matrix.arch }})
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 📦 Publish ${{ matrix.arch }} Debian package
+        uses: jrandiny/apt-repo-action@v2.0.1
+        with:
+          repo_supported_version: stable
+          file_target_version: stable
+          page_branch: apt-repo
+          repo_folder: debian
+          github_token: ${{ secrets.GH_API_TOKEN }}
+          repo_supported_arch: ${{ env.REPO_ARCHITECTURES }}
+          file: packsquash*.deb
+          public_key: ${{ secrets.APT_PUBLIC_KEY }}
+          private_key: ${{ secrets.APT_PRIVATE_KEY }}
+          key_passphrase: ${{ secrets.APT_PRIVATE_KEY_PASSPHRASE }}
