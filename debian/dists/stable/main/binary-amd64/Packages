@@ -1,18 +1,18 @@
 Package: packsquash
-Version: 0.3.1-1
+Version: 0.4.0-1
 Architecture: amd64
 Vcs-Browser: https://github.com/ComunidadAylas/PackSquash
 Vcs-Git: https://github.com/ComunidadAylas/PackSquash
-Maintainer: Alejandro González <AlexTMjugador@users.noreply.github.com>
-Installed-Size: 4215
-Depends: libgstreamer1.0-0 (>= 1.0.0), libglib2.0-0 (>= 2.31.8), libgstreamer-plugins-base1.0-0 (>= 1.10.0), gstreamer1.0-plugins-base (>= 1.16.2), gstreamer1.0-plugins-bad (>= 1.16.2), libc6 (>= 2.29), gstreamer1.0-plugins-good (>= 1.16.2)
+Maintainer: Alejandro González <me@alegon.dev>
+Installed-Size: 8660
+Depends: libc6 (>= 2.29)
 Priority: optional
 Section: utils
-Filename: pool/main/p/packsquash/packsquash_0.3.1-1_amd64.deb
-Size: 1355904
-SHA256: afdac9942a6b8c166af50d38e5806153f5b1baa4343266a7b28b470ed842071c
-SHA1: aac9eff789f2bfb5d30d61f387297d5be988bd31
-MD5sum: 02cb951c451209772717cb2e0a0d2f84
+Filename: pool/main/p/packsquash/packsquash_0.4.0-1_amd64.deb
+Size: 2541036
+SHA256: 298ebe21f6c6295b252b5ab0c6b5023430977a92b6dd02c11db3b556a960af3a
+SHA1: b8198ec578a8f3e1f4f5b99a6900dad47ff27681
+MD5sum: b846d9f4bb8b21efcba8d3d5f81bb76e
 Description: Minecraft resource and data pack optimizer (CLI)
  A Minecraft: Java Edition resource and data pack optimizer which aims to
  achieve the best possible compression, performance, and protection, improving
@@ -30,17 +30,20 @@ Description: Minecraft resource and data pack optimizer (CLI)
  can apply the following specific techniques:
  .
  * For PNG images: color quantization to generate a color palette, lossless bit
-   depth, compression and color type reduction, and metadata removal. The
-   quantization, although it is pretty subtle or even unneeded for common
-   texture sizes, can be disabled if lossless quality is desired. These
-   operations are performed by the well-known imagequant (used in pngquant) and
-   oxipng libraries.
- * For Ogg (.ogg and .oga), MP3, Opus, FLAC, and WAV files: channel mixing,
-   downsampling, transcoding, pitch shifting, and tag removal. The default
-   settings are meant to be good enough for in-game music, such that most
-   listeners will think that the quality is good and not distracting. Because
-   channel mixing may change how the Minecraft sound engine computes positional
-   effects (see MC-146721), PackSquash won't do it by default.
+   depth, compression and color type reduction, metadata removal, and downsizing
+   of single-color textures. The quantization, although it is pretty subtle or
+   even unneeded for common texture sizes, can be disabled if lossless quality
+   is desired. Downsizing can also be turned off. Some of these optimizations
+   are done by the well-known imagequant (used in pngquant) and oxipng
+   libraries.
+ * For Ogg (.ogg and .oga), MP3, M4A, FLAC, and WAV files: channel mixing,
+   downsampling, transcoding with a state-of-the-art Vorbis encoder, pitch
+   shifting, tag removal, and two-pass optimization and validation with
+   OptiVorbis. The default settings are meant to be good enough for in-game
+   music, such that most listeners will think that the quality is good and not
+   distracting. Because channel mixing may change how the Minecraft sound engine
+   computes positional effects (see MC-146721), PackSquash won't do it by
+   default.
  * For JSON files (.json, .jsonc, .mcmeta and .mcmetac; if OptiFine mod support
    is enabled, also .jem, .jemc, .jpm and .jpmc): minification, by removing
    unneeded whitespace. As a side bonus, because minification requires parsing
@@ -50,8 +53,10 @@ Description: Minecraft resource and data pack optimizer (CLI)
    letter. The validation done doesn't catch all the possible errors that might
    confuse Minecraft.
  * For shader files (.vsh, .fsh and .glsl): minification, by removing unneeded
-   whitespace. As with JSON files, PackSquash will perform basic validation on
-   them.
+   whitespace, and resolution and expansion of preprocessor directives. As with
+   JSON files, PackSquash will perform basic validation on them. Please note
+   that due to limitations in the current design of PackSquash some shaders may
+   require tweaking. These limitations will be addressed in the future.
  * For legacy language files (.lang; used in Minecraft 1.12.2 and lower):
    minification, removing blank lines and comments. Duplicate keys and non-blank
    lines that are not comments and do not contain a key-value separator are
@@ -87,38 +92,33 @@ Description: Minecraft resource and data pack optimizer (CLI)
  * Protecting the generated ZIP files, making them harder to read by most ZIP
    manipulation programs.
  .
- 🔗 Download and installation
+ 🔗 Download and usage
  .
- PackSquash is distributed for a bunch of operating systems and environments.
- Check out the installation guide for details on how to download and get
- PackSquash.
+ PackSquash is a command-line application distributed for a bunch of operating
+ systems and environments. Check out the getting started guide for details on
+ how to begin your journey with PackSquash.
  .
- 📝 Usage
+ Alternatively, you might be interested in third-party frontends for PackSquash,
+ such as:
  .
- PackSquash is a command-line application, so it must be executed from a command
- prompt, a shortcut, a command-line shell, or a script. You can customize how it
- works via options. In addition, it also accepts some command-line arguments.
- You can know about these by launching PackSquash with the -h or --help
- argument.
- .
- If you want a GUI for using PackSquash or even authoring resource packs in
- general, you may want to try out the Quiver project, which is a third-party
- resource pack creator and manager for Minecraft that integrates with
- PackSquash. Just install PackSquash dependencies, open the resource pack
- folder, tweak the options file if you need to, and enjoy!
+ * Quiver, a resource pack creator and manager. At the time of writing, Quiver
+   is using an older, unsupported version of PackSquash, so it may not be
+   representative of the experience with current versions. If you have the time,
+   will, and know-how, you might want to help this project update its
+   integration!
  .
  ✉️ Contact and support
  .
- Like the license says, this software is provided without any warranty, with the
+ As the license says, this software is provided without any warranty, with the
  hope that you find it useful. But that doesn't mean I don't welcome
  constructive feedback, suggestions, congratulations, or assisting you on your
  use of PackSquash (if I can and want to). If you wish to drop me a line for
  whatever reason related to PackSquash, you can contact me on Discord:
- AlexTMjugador#5124.
+ alextmjugador.
  .
- Also, if you speak Spanish, you may find that our Spanish-speaking community,
- Comunidad Aylas, suits you well. You can join us on Discord. Don't forget to
- introduce yourself!
+ You can also join the Discord server of our community, Comunidad Aylas, which
+ has dedicated spaces to welcome English-language PackSquash chat and support,
+ among other topics. Don't forget to introduce yourself!
  .
  🎁 Sponsoring
  .
@@ -144,12 +144,4 @@ Description: Minecraft resource and data pack optimizer (CLI)
  payment methods, share the funds with other high-profile contributors, or use
  them for donations and campaigns. I will be transparent about any major
  decisions I make about this, communicating them in public announcements.
- .
- ✅ Acknowledgments
- .
- Special thanks to JetBrains s.r.o. for providing core PackSquash developers
- with a free open source development license for CLion and other development
- tools.
- .
-                                 JetBrains logo
 
