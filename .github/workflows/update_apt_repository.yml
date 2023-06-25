@@ -42,6 +42,15 @@ jobs:
           name: PackSquash ${{ matrix.package-id }} Debian package (${{ matrix.arch }})
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: 🔎 Get Debian package file name
+        uses: actions/github-script@v6
+        id: deb-file
+        with:
+          result-encoding: string
+          script: |
+            const globber = await glob.create('packsquash_*.deb')
+            return (await globber.glob())[0]
+
       - name: 📦 Publish ${{ matrix.arch }} Debian package
         uses: jrandiny/apt-repo-action@v2.0.1
         with:
@@ -51,7 +60,7 @@ jobs:
           repo_folder: debian
           github_token: ${{ secrets.GH_API_TOKEN }}
           repo_supported_arch: ${{ env.REPO_ARCHITECTURES }}
-          file: packsquash*.deb
+          file: ${{ steps.deb-file.outputs.result }}
           public_key: ${{ secrets.APT_PUBLIC_KEY }}
           private_key: ${{ secrets.APT_PRIVATE_KEY }}
           key_passphrase: ${{ secrets.APT_PRIVATE_KEY_PASSPHRASE }}
