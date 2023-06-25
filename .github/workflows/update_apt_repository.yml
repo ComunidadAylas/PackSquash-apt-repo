@@ -29,7 +29,6 @@ jobs:
       matrix:
         package-id:
           - CLI
-          - GUI
         arch:
           - amd64
           - arm64
