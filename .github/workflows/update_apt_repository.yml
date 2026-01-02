@@ -60,7 +60,7 @@ jobs:
           file_target_version: stable
           page_branch: apt-repo
           repo_folder: debian
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GH_API_TOKEN }}
           repo_supported_arch: ${{ env.REPO_ARCHITECTURES }}
           file: ${{ steps.deb-file.outputs.result }}
           public_key: ${{ secrets.APT_PUBLIC_KEY }}
