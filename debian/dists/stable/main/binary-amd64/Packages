@@ -1,26 +1,26 @@
 Package: packsquash
-Version: 0.4.0-1
+Version: 0.4.1-1
 Architecture: amd64
-Vcs-Browser: https://github.com/ComunidadAylas/PackSquash
-Vcs-Git: https://github.com/ComunidadAylas/PackSquash
+Homepage: https://github.com/ComunidadAylas/PackSquash
 Maintainer: Alejandro González <me@alegon.dev>
-Installed-Size: 8660
-Depends: libc6 (>= 2.29)
+Installed-Size: 8808
+Depends: libc6 (>= 2.34)
 Priority: optional
 Section: utils
-Filename: pool/main/p/packsquash/packsquash_0.4.0-1_amd64.deb
-Size: 2541036
-SHA256: 298ebe21f6c6295b252b5ab0c6b5023430977a92b6dd02c11db3b556a960af3a
-SHA1: b8198ec578a8f3e1f4f5b99a6900dad47ff27681
-MD5sum: b846d9f4bb8b21efcba8d3d5f81bb76e
+Filename: pool/main/p/packsquash/packsquash_0.4.1-1_amd64.deb
+Size: 2522176
+SHA256: ce5e8f1cab44697a2ee7c7f41d02e73a66d19495f83bef77e0e78acda3b20c20
+SHA1: 8a88f55f7536cd30d6901873d23147778d69bc11
+MD5sum: 2fc59f828b4e7a2e123d780bbb59e9b4
 Description: Minecraft resource and data pack optimizer (CLI)
- A Minecraft: Java Edition resource and data pack optimizer which aims to
- achieve the best possible compression, performance, and protection, improving
- pack distribution, storage, and in-game load times. Anecdotal evidence shows
- that, with the default options, version v0.2.1 was capable of reducing the size
- of the Witchcraft & Wizardary resource pack ZIP file by Floo Network (version
- 1.6.2) from 118 MiB to 57 MiB, a 51.69% size reduction, and it got better over
- time.
+ PackSquash is a Minecraft: Java Edition resource and data pack optimizer which
+ aims to achieve the best possible compression, performance, and protection,
+ improving pack distribution, storage, and in-game load times.
+ .
+ Anecdotal evidence shows that, with the default options, version v0.2.1 was
+ capable of reducing the size of the Witchcraft & Wizardary resource pack ZIP
+ file by Floo Network (version 1.6.2) from 118 MiB to 57 MiB, a 51.69% size
+ reduction, and it got better over time.
  .
  🔎 Overview
  .
@@ -29,46 +29,55 @@ Description: Minecraft resource and data pack optimizer (CLI)
  builds a ZIP file that can be directly used by the game. Currently, PackSquash
  can apply the following specific techniques:
  .
- * For PNG images: color quantization to generate a color palette, lossless bit
-   depth, compression and color type reduction, metadata removal, and downsizing
-   of single-color textures. The quantization, although it is pretty subtle or
-   even unneeded for common texture sizes, can be disabled if lossless quality
-   is desired. Downsizing can also be turned off. Some of these optimizations
-   are done by the well-known imagequant (used in pngquant) and oxipng
-   libraries.
- * For Ogg (.ogg and .oga), MP3, M4A, FLAC, and WAV files: channel mixing,
-   downsampling, transcoding with a state-of-the-art Vorbis encoder, pitch
-   shifting, tag removal, and two-pass optimization and validation with
-   OptiVorbis. The default settings are meant to be good enough for in-game
-   music, such that most listeners will think that the quality is good and not
-   distracting. Because channel mixing may change how the Minecraft sound engine
-   computes positional effects (see MC-146721), PackSquash won't do it by
-   default.
- * For JSON files (.json, .jsonc, .mcmeta and .mcmetac; if OptiFine mod support
-   is enabled, also .jem, .jemc, .jpm and .jpmc): minification, by removing
-   unneeded whitespace. As a side bonus, because minification requires parsing
-   first, PackSquash also acts as a strict JSON file validator. Comments are the
-   only syntax extension accepted, and they are discarded by default, although
-   they can be rejected too in files whose extension does not end with a "c"
-   letter. The validation done doesn't catch all the possible errors that might
-   confuse Minecraft.
- * For shader files (.vsh, .fsh and .glsl): minification, by removing unneeded
-   whitespace, and resolution and expansion of preprocessor directives. As with
-   JSON files, PackSquash will perform basic validation on them. Please note
-   that due to limitations in the current design of PackSquash some shaders may
-   require tweaking. These limitations will be addressed in the future.
- * For legacy language files (.lang; used in Minecraft 1.12.2 and lower):
-   minification, removing blank lines and comments. Duplicate keys and non-blank
-   lines that are not comments and do not contain a key-value separator are
-   treated as errors, which helps catch mistakes and keep your files tidy.
- * For OptiFine properties files (Java .properties; only if OptiFine mod support
-   is enabled): minification, by removing unneeded whitespace. As with JSON
-   files, performing minification requires parsing the file, so PackSquash will
-   show basic validation errors.
- * For BlockBench model files (.bbmodel; only if Minecraft Transit Railway 3
-   support is enabled): minification, by removing unneeded whitespace and keys.
-   The minification might also improve privacy, as some keys containing
-   environment-specific metadata are removed.
+ - For PNG images: color quantization to generate a color palette, lossless bit
+ depth, compression and color type reduction, metadata removal, and downsizing
+ of
+ single-color textures. The quantization, although it is pretty subtle or even
+ unneeded for common texture sizes, can be disabled if lossless quality is
+ desired. Downsizing can also be turned off. Some of these optimizations are
+ done
+ by the well-known imagequant (used in pngquant) and oxipng libraries.
+ - For Ogg (.ogg and .oga), MP3, M4A, FLAC, and WAV files: channel mixing,
+ downsampling, transcoding with a state-of-the-art Vorbis encoder, pitch
+ shifting, tag removal, silence truncation, and two-pass optimization and
+ validation with OptiVorbis. The default settings are meant to be good enough
+ for
+ in-game music, such that most listeners will think that the quality is good and
+ not distracting. Because channel mixing may change how the Minecraft sound
+ engine computes positional effects (see MC-146721), PackSquash won't do it by
+ default.
+ - For JSON files (.json, .jsonc, .mcmeta and .mcmetac; if OptiFine mod support
+ is enabled, also .jem, .jemc, .jpm and .jpmc): minification, by removing
+ unneeded whitespace. As a side bonus, because minification requires parsing
+ first, PackSquash also acts as a strict JSON file validator. Comments are the
+ only syntax extension accepted, and they are discarded by default, although
+ they
+ can be rejected too in files whose extension does not end with a "c" letter.
+ The
+ validation done doesn't catch all the possible errors that might confuse
+ Minecraft.
+ - For shader files (.vsh, .fsh and .glsl): minification, by removing unneeded
+ whitespace, and resolution and expansion of preprocessor directives. As with
+ JSON files, PackSquash will perform basic validation on them. Please note that
+ due to limitations in the current design of PackSquash some shaders may require
+ tweaking. These limitations will be addressed in the future.
+ - For structure files (.nbt): recompression with Zopfli, Gzip member
+ concatenation, and metadata removal.
+ - For legacy language files (.lang; used in Minecraft 1.12.2 and lower):
+ minification, removing blank lines and comments. Duplicate keys and non-blank
+ lines that are not comments and do not contain a key-value separator are
+ treated
+ as errors, which helps catch mistakes and keep your files tidy.
+ - For OptiFine properties files (Java .properties; only if OptiFine mod support
+ is enabled): minification, by removing unneeded whitespace. As with JSON files,
+ performing minification requires parsing the file, so PackSquash will show
+ basic
+ validation errors.
+ - For BlockBench model files (.bbmodel; only if Minecraft Transit Railway 3
+ support is enabled): minification, by removing unneeded whitespace and keys.
+ The
+ minification might also improve privacy, as some keys containing environment-
+ specific metadata are removed.
  .
  In addition to these techniques, the files that are not already compressed by
  design (namely, Ogg and PNG files) are losslessly compressed using the Zopfli
@@ -78,43 +87,42 @@ Description: Minecraft resource and data pack optimizer (CLI)
  to compress already compressed files and increase the number of compression
  iterations, although this slows down the process significantly. Conversely, if
  lower savings are acceptable in exchange for faster execution, it is possible
- to reduce the number of compression iterations or skip it altogether.
+ to
+ reduce the number of compression iterations or skip it altogether.
  .
  PackSquash is also capable of doing the following things, although they are
  disabled by default because they require informed decisions to be made by the
  user:
  .
- * Reusing the ZIP files it previously generated to skip compressing files that
-   did not change between executions, vastly speeding it up for incremental
-   workflows, where only a few files change each time.
- * Deduplicating identical files within the generated ZIP file: the contents of
-   files repeated several times over will be stored only once.
- * Protecting the generated ZIP files, making them harder to read by most ZIP
-   manipulation programs.
+ - Reusing the ZIP files it previously generated to skip compressing files that
+ did not change between executions, vastly speeding it up for incremental
+ workflows, where only a few files change each time.
+ - Deduplicating identical files within the generated ZIP file: the contents of
+ files repeated several times over will be stored only once.
+ - Protecting the generated ZIP files, making them harder to read by most ZIP
+ manipulation programs, and some of the files stored inside such ZIP files.
  .
  🔗 Download and usage
  .
  PackSquash is a command-line application distributed for a bunch of operating
  systems and environments. Check out the getting started guide for details on
- how to begin your journey with PackSquash.
+ how
+ to begin your journey with PackSquash.
  .
- Alternatively, you might be interested in third-party frontends for PackSquash,
- such as:
+ Alternatively, you might be interested in third-party tools that integrate with
+ PackSquash, such as:
  .
- * Quiver, a resource pack creator and manager. At the time of writing, Quiver
-   is using an older, unsupported version of PackSquash, so it may not be
-   representative of the experience with current versions. If you have the time,
-   will, and know-how, you might want to help this project update its
-   integration!
+ - Nexo, a Minecraft server plugin for creating custom items, blocks, armor, and
+ more.
  .
  ✉️ Contact and support
  .
  As the license says, this software is provided without any warranty, with the
  hope that you find it useful. But that doesn't mean I don't welcome
- constructive feedback, suggestions, congratulations, or assisting you on your
- use of PackSquash (if I can and want to). If you wish to drop me a line for
- whatever reason related to PackSquash, you can contact me on Discord:
- alextmjugador.
+ constructive
+ feedback, suggestions, congratulations, or assisting you on your use of
+ PackSquash (if I can and want to). If you wish to drop me a line for whatever
+ reason related to PackSquash, you can contact me on Discord: alextmjugador.
  .
  You can also join the Discord server of our community, Comunidad Aylas, which
  has dedicated spaces to welcome English-language PackSquash chat and support,
@@ -132,16 +140,13 @@ Description: Minecraft resource and data pack optimizer (CLI)
  companies get paid for doing these kinds of things. If you want to say "thank
  you" in a way that words can't describe or motivate me to stay committed to the
  project and advance in the roadmap, sending me some money would be a great way
- to do so! You can choose any of the platforms shown below:
- .
-                          Buy me a coffee at ko-fi.com
- .
-                              Donate via PayPal.me
+ to do so!
  .
  In principle, I will use any funds I receive for personal spending. However, I
  may decide to introduce sponsor tiers and perks (retroactively, benefiting
- those who sponsored the project before they got introduced too), add more
- payment methods, share the funds with other high-profile contributors, or use
- them for donations and campaigns. I will be transparent about any major
- decisions I make about this, communicating them in public announcements.
+ those
+ who sponsored the project before they got introduced too), add more payment
+ methods, share the funds with other high-profile contributors, or use them for
+ donations and campaigns. I will be transparent about any major decisions I make
+ about this, communicating them in public announcements.
 

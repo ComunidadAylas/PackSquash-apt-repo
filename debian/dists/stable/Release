@@ -1,25 +1,25 @@
 Codename: stable
-Date: Sun, 25 Jun 2023 12:59:52 UTC
+Date: Fri, 02 Jan 2026 17:42:23 UTC
 Architectures: amd64 arm64
 Components: main
 Description: ComunidadAylas/PackSquash-apt-repo
 MD5Sum:
- ffa6df2c2b144c387a2574d45da97c1f 8280 main/binary-amd64/Packages
- d7dc0f9c4c743f14c82c92e2ef77e842 3897 main/binary-amd64/Packages.gz
+ 18e011f933f47c517c88c8ac47fea9db 7976 main/binary-amd64/Packages
+ 97721f5c47d730746077e829f1c334ab 3784 main/binary-amd64/Packages.gz
  fd3086397a127a1ee53dce74b05d4cbc 84 main/binary-amd64/Release
  b2050265489aa00abaf839260e73f8fd 8286 main/binary-arm64/Packages
  16e61ff005cd5e69c40f4b2e3ff698af 3896 main/binary-arm64/Packages.gz
  139ee8fc6cf41497e8e23a0124c51408 84 main/binary-arm64/Release
 SHA1:
- 6691f0dece3be5caeedba6ceab4c8bdcb34f6f0a 8280 main/binary-amd64/Packages
- e4fde971909d837824e645d6d6aeeb2664571462 3897 main/binary-amd64/Packages.gz
+ 40be5fc6e149440ca2e03ba8c38c882f8760b103 7976 main/binary-amd64/Packages
+ 80d2b1128841734c5cf91d7220ceafd4fc60a0c0 3784 main/binary-amd64/Packages.gz
  7901cd175220e0102ea223fe51fd8a24245e210a 84 main/binary-amd64/Release
  953a36b31e39be9e9a22b929bb4cb7f7052b8cfe 8286 main/binary-arm64/Packages
  d4ff909f4c324c5fc6c5840ea5eb0db60bef7e1f 3896 main/binary-arm64/Packages.gz
  6a887069c48290d536e76b22eee991371f810d2a 84 main/binary-arm64/Release
 SHA256:
- e09a2fb60369f9a589155c6f4e4556a9451869d16e56eed9e683da92e8455dd3 8280 main/binary-amd64/Packages
- 503eb7e683c607fe1a6eb1a3e80099d83584e4ed402276ed0697f5e775dd7e66 3897 main/binary-amd64/Packages.gz
+ 8eba4922c0994be22df7d0a08e4ad7e4305b60ce150267b0598cb6cb9ba1a8bc 7976 main/binary-amd64/Packages
+ f9e9176f69aac15f1eb5b90bd9db7ea22752da5b0c2d2aa5b93fb929714e969b 3784 main/binary-amd64/Packages.gz
  a399cf2a12f70e67980e619bbd424361f2ff0c47990aba709afb775e1835cab6 84 main/binary-amd64/Release
  cf6b1ddbe199fc3e22942926cf3c1bc417a42f60ee81b7526ad37cf8d6076782 8286 main/binary-arm64/Packages
  f5617ade6310f42569caf4df44adbb444edc01f4e6ac275a2d77cc0442bfff37 3896 main/binary-arm64/Packages.gz
