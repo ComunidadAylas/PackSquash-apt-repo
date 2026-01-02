@@ -24,26 +24,28 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+
     strategy:
       max-parallel: 1
       matrix:
         package-id:
           - CLI
-        arch:
-          - amd64
-          - arm64
+        target:
+          - x86_64-unknown-linux-gnu
+          - aarch64-unknown-linux-gnu
 
     steps:
-      - name: 📥 Download ${{ matrix.package-id }} ${{ matrix.arch }} Debian package
-        uses: dawidd6/action-download-artifact@v2
+      - name: 📥 Download ${{ matrix.package-id }} ${{ matrix.target }} Debian package
+        uses: dawidd6/action-download-artifact@v12
         with:
           repo: ComunidadAylas/PackSquash
           run_id: ${{ inputs.ci-run-id }}
-          name: PackSquash ${{ matrix.package-id }} Debian package (${{ matrix.arch }})
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          name: PackSquash ${{ matrix.package-id }} Debian package (${{ matrix.target }})
 
       - name: 🔎 Get Debian package file name
-        uses: actions/github-script@v6
+        uses: actions/github-script@v8
         id: deb-file
         with:
           result-encoding: string
@@ -51,14 +53,14 @@ jobs:
             const globber = await glob.create('packsquash_*.deb')
             return (await globber.glob())[0]
 
-      - name: 📦 Publish ${{ matrix.arch }} Debian package
+      - name: 📦 Publish ${{ matrix.target }} Debian package
         uses: jrandiny/apt-repo-action@v2.0.1
         with:
           repo_supported_version: stable
           file_target_version: stable
           page_branch: apt-repo
           repo_folder: debian
-          github_token: ${{ secrets.GH_API_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           repo_supported_arch: ${{ env.REPO_ARCHITECTURES }}
           file: ${{ steps.deb-file.outputs.result }}
           public_key: ${{ secrets.APT_PUBLIC_KEY }}
